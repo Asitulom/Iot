@@ -1,0 +1,125 @@
+#index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi Sensor Interface</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('foto.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: rgba(0, 123, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            font-size: 20px;
+            margin: 0 20px;
+            cursor: pointer;
+            background-color: #ddd;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #ccc;
+        }
+
+        .tab.active {
+            background-color: #ccc;
+        }
+
+        .content {
+            margin-top: 30px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #007BFF;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Raspberry Pi Sensor Interface</h1>
+
+    <div class="tab-container">
+        <div class="tab" onclick="showContent('humidity')">Humidity</div>
+        <div class="tab" onclick="showContent('temperature')">Temperature</div>
+    </div>
+
+    <div class="content" id="humidityContent">
+        <h2>Humidity: {{ humidity_value }}</h2>
+        <!-- Add more content related to humidity if needed -->
+    </div>
+
+    <div class="content" id="temperatureContent" style="display: none;">
+        <h2>Temperature: {{ temperature_value }}</h2>
+        <!-- Add more content related to temperature if needed -->
+    </div>
+
+    <script>
+        function showContent(contentId) {
+            const allContents = document.querySelectorAll('.content');
+            allContents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            document.getElementById(contentId + 'Content').style.display = 'block';
+
+            const allTabs = document.querySelectorAll('.tab');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.querySelector(`.tab.${contentId}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
+
+
