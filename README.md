@@ -13,9 +13,12 @@ Finally, we make sure 'main()' runs when the script is directly started.
 
 
 
+
 OBJECTIVE
 
 Our project objective is to make a simple system for real-time monitoring of temperature and humidity along the Bilbo river. We're working towards creating an easy-to-use, automated solution. Utilizing a Grove Temperature and Humidity Sensor, we collect essential data to understand the local climate. The information we collect can be applied to environmental research, resource management, and for the safety of activities along the river. We provide a clear picture of the Bilbo river's environmental conditions, supporting sustainable practices and informed decision-making for the local community and stakeholders, including Kayaking, Rowing, Paddleboarding.
+
+
 
 
 PROBLEMS DURING THE PROJECT
