@@ -1,5 +1,6 @@
 #temphum.py
 
+
 import requests
 import pandas as pd
 ACCESS TOKEN = "taVTqDu3cXSQwNpOqnxE"
@@ -15,7 +16,7 @@ def send_data(dataframe):
 	dataframe = pd.DataFrame.from_dict (dataframe, orient='index') 
 	json_data = dataframe.to_json(orient='records')
 	try:
-		response = requests.post(THINGSBOARD_API_URL, headers-headers, data=json_data) 
+		response = requests.post(THINGSBOARD_API_URL, headers=headers, data=json_data) 
 		print (f"Status code: {response.status_code}")
 	except Exception as e:
 		print (f"Error: {str(e)}")
